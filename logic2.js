@@ -88,6 +88,14 @@ function buildBreedList(obj) {
   return listOfBreeds;
 }
 
+function clearFavoriteHeart() {
+  const favoriteActive = $("#favorite").css("color") === "rgb(255, 0, 0)";
+
+  if (favoriteActive) {
+    favPic = "";
+    $("#favorite").click();
+  }
+}
 // Listeners
 
 $("#rating").on("change", e => {
@@ -115,12 +123,12 @@ $("#favorite").on("click", e => {
         return item.url === favPic;
       });
       if (duplicate.length < 1) {
-        localFavs.push(newFav);
+        localFavs = [...localFavs, newFav];
       }
     } else {
-      localFavs.push(newFav);
+      localFavs = [newFav];
     }
-    favPic = "";
+
     localStorage.setItem("favorites", JSON.stringify(localFavs));
 
     getFavs(localFavs);
@@ -142,11 +150,7 @@ $("#favorite").on("click", e => {
 $("#get-another").on("click", e => {
   e.preventDefault();
 
-  const favoriteActive = $("#favorite").css("color") === "rgb(255, 0, 0)";
-
-  if (favoriteActive) {
-    $("#favorite").click();
-  }
+  clearFavoriteHeart();
   getOne(oneRandom);
 });
 
@@ -156,7 +160,7 @@ $("#breeds-select").on("change", e => {
 
 $("#get-by-breed").on("click", e => {
   e.preventDefault();
-
+  clearFavoriteHeart();
   if (breed) {
     getOne(randomByBreed(breed));
   } else {
@@ -174,11 +178,7 @@ $("#favs").on("click", e => {
     });
     localStorage.setItem("favorites", JSON.stringify(newFavs));
     localFavs = JSON.parse(localStorage.getItem("favorites"));
-    const favoriteActive = $("#favorite").css("color") === "rgb(255, 0, 0)";
-
-    if (favoriteActive) {
-      $("#favorite").click();
-    }
+    clearFavoriteHeart();
 
     getFavs(newFavs);
   }
