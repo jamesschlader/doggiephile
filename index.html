@@ -12,17 +12,59 @@
   </head>
   <body>
     <div class="uk-container">
-      <div>
-        <h1 class="uk-heading-large uk-text-center">
-          Doggiephile
-        </h1>
-        <div class="uk-margin uk-box-shadow-large uk-padding" id="pics"></div>
-        <div class="uk-margin uk-box-shadow-large uk-padding" id="favs">
+      <h1 class="uk-heading-large uk-text-center">
+        Doggiephile
+      </h1>
+      <div class="uk-flex">
+        <div
+          class="uk-margin uk-box-shadow-large uk-padding uk-width-1-2"
+          id="pics"
+        >
+          <div class="random-image"></div>
+          <form class="uk-form">
+            <div class="uk-form-row ratings">
+              <legend class="uk-legend">Rate Me</legend>
+              <div class="uk-flex-inline uk-padding">
+                <i uk-icon="icon:heart; ratio:2" id="favorite"></i>
+              </div>
+              <select class="uk-select uk-form-width-medium" id="rating">
+                <option value="10">rating</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+              </select>
+            </div>
+            <div class="uk-flex-inline uk-padding">
+              <button class="uk-button" id="get-another">
+                Get Another Random Doggie
+              </button>
+            </div>
+            <div class="uk-flex-inline uk-padding">
+              <legend class="uk-legend uk-margin-right">By Breed</legend>
+              <select
+                class="uk-select uk-form-width-medium"
+                id="breeds-select"
+              ></select>
+              <button class="uk-button" id="get-by-breed">Go</button>
+            </div>
+          </form>
+        </div>
+        <div class="uk-margin uk-box-shadow-large uk-padding uk-width-1-2">
           <h2>My Favorite Doggies</h2>
+          <div id="favs"></div>
         </div>
       </div>
     </div>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="logic.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="logic2.js"></script>
   </body>
 </html>

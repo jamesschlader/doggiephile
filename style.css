@@ -1,3 +1,11 @@
-.fav-pics:hover {
+.dog-image:hover {
   cursor: pointer;
+}
+
+#favorite:hover {
+  cursor: pointer;
+}
+
+.random-image {
+  min-height: 500px;
 }
